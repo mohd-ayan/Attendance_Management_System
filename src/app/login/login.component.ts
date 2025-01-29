@@ -36,6 +36,12 @@ export class LoginComponent {
     else
       {
         let userInfo = JSON.parse(localStorage.getItem('Roaster_array')!)
+        console.log(userInfo)
+        if(!userInfo)
+        {
+            alert('Invalid User')
+            return
+        }
         let isAvail = userInfo.find((item:any)=>item.name === this.loginForm.get('username')?.value && item.password || '12345' === this.loginForm.get('password')?.value)
           if(isAvail){
             let data = userInfo.find((item:any)=>{
